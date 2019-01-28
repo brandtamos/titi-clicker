@@ -70,7 +70,7 @@ Buildings
 		name:Total Wine|Total Wines
 		desc:Get you a case of Andre.<//><b>Effect:</b><.>Does 1 chambong every 2 seconds.
 		//icon:icons[3,0]
-		cost:15 chambongs
+		cost:100 chambongs
 		on tick:yield 0.5 chambong
 		req:100 chambongs:earned
 
@@ -90,23 +90,24 @@ Buildings
 		on tick:yield 12 chambongs
 		req:4000 chambongs:earned
 	
-	/*
-	*meadow|meadows
-		name:Rabbit meadow|Rabbit meadows
-		desc:A wide open space full of shade and lush grass.<//><b>Effect:</b><.>Produces 90 rabbits per second.
-		//icon:icons[3,4]
-		cost:20000 bunnies
-		on tick:yield 90 bunnies
-		req:20000 bunnies:earned
 	
-	*village|villages
-		name:Rabbit village|Rabbit villages
-		desc:Your bunnies are building their own villages now!<//><b>Effect:</b><.>Produces 300 rabbits per second.
+	*9dsBar|9dsBars
+		name:9d's Bar|9d's Bars
+		desc:Drink a PBR and dance on a dirty floor!<//><b>Effect:</b><.>Do 90 chambongs per second.
+		//icon:icons[3,4]
+		cost:20000 chambongs
+		on tick:yield 90 chambongs
+		req:20000 chambongs:earned
+	
+	*sanfordStadium|sanfordStadiums
+		name:Sanford Stadium|Sanford Stadiums
+		desc:GOOOOO DAWGS! SIC 'EM! WOOF WOOF WOOF WOOF WOOF<//><b>Effect:</b><.>Does 300 chambongs per second.
 		//icon:icons[3,5]
-		cost:200000 bunnies, 1 goldenCarrot
-		on tick:yield 300 bunnies
-		req:200000 bunnies:earned and independenceDay
+		cost:200000 chambongs
+		on tick:yield 300 chambongs
+		req:200000 chambongs:earned
 		
+    /*
 	*city|cities
 		name:Rabbit city|Rabbit cities
 		desc:A bustling little city, populated with busy rabbits.<//><b>Effect:</b><.>Produces 1000 rabbits per second.
