@@ -1,0 +1,104 @@
+Let's make a game!
+	name:TiTi Clicker
+	by:Evan Brandt
+	desc:This is a simple idle game to showcase some of the basic functionalities of Idle Game Maker.<//>Make bunnies and shoot for the stars!
+	created:27/1/2019
+	updated:27/1/2019
+	version:1
+
+Settings
+	background:http://okayco.de/titiclicker/img/champagneBackground.jpg
+	building cost increase:115%
+	building cost refund:50%
+	//spritesheet:icons, 48 by 48, stuff/bunnyIcons.png
+	stylesheet:http://okayco.de/titiclicker/bigBlue.css
+
+Layout
+	use default
+		
+Buttons
+	*titiButton
+		name:Do a Chambong
+		desc:Click Titi to do more chambongs!
+		on click:anim icon wobble
+		on click:yield 1 chambong
+		//on click:if (have goldenTouch and chance(1%)) yield 1 goldenCarrot
+		icon:http://okayco.de/titiclicker/img/titiFace.png
+		no text
+		class:bigButton hasFlares
+		icon class:shadowed
+		tooltip origin:bottom
+		tooltip class:red
+		
+Resources
+	*chambong|chambongs
+		name:Chambong|Chambongs
+		desc:These are chambongs. They are your life.
+		icon:http://okayco.de/titiclicker/img/chambongIcon.png
+		class:noBackground
+		show earned
+		
+		
+Shinies
+	*luckyAndre
+		on click:log Woop
+		movement:onRight moveLeft fade bounce:0.05
+		frequency:5
+		//frequency variation:30
+		icon:http://okayco.de/titiclicker/img/shinyAndreBottle.png
+		class:bigButton
+		on click:
+			$boost=2
+            //get at least 7, or between 1 and 3 minutes of our chambong production
+            $amount=max(7,random(chambongs:ps*60*1,chambongs:ps*60*3))*$boost
+            toast The lucky Andre bottle grants you<//><b>[$amount] chambongs</b>.
+            yield $amount chambongs
+		end
+
+Buildings
+	*TEMPLATE
+		on click:anim glow
+		
+	*harrisTeeter|harrisTeeters
+		name:Harris Teeter|Harris Teeters
+		desc:Your neighborhood grocer.<//><b>Effect:</b><.>Does 1 chambong every 10 seconds.
+		//icon:icons[3,0]
+		cost:15 chambongs
+		on tick:yield 0.1 chambong
+		unlocked
+	*totalWine|totalWines
+		name:Total Wine|Total Wines
+		desc:Get you a case of Andre.<//><b>Effect:</b><.>Does 1 chambong every 2 seconds.
+		//icon:icons[3,0]
+		cost:15 chambongs
+		on tick:yield 0.5 chambong
+		req:100 chambongs:earned
+	
+		
+Upgrades
+	*TEMPLATE
+		on click:anim glow
+	
+	//food upgrades
+	//inspiration : http://rabbit.org/suggested-vegetables-and-fruits-for-a-rabbit-diet/
+	
+	*chambongStand
+		name:Chambong Stand
+		desc:Makes it easier to pour chambongs.<//><b>Effect:</b><.>+1 chambong/click
+		//icon:icons[1,1]
+		cost:100 chambong
+		passive:increase chambong yield of titiButton by 1
+		req:10 chambongs:earned
+		
+	
+		
+Achievements
+	*TEMPLATE
+		on click:anim glow
+		
+	*chambongAchiev1
+		name:Do a chambong
+		desc:Do <b>1</b> chambong.
+		req:1 chambong
+		//icon:icons[2,4] icons[0,2] icons[0,6]
+	
